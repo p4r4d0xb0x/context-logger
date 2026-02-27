@@ -21,6 +21,20 @@ Context Logger runs in the background and automatically:
 
 ## Installation
 
+### Quick Install (Recommended)
+```bash
+curl -fsSL https://raw.githubusercontent.com/p4r4d0xb0x/context-logger/main/bin/install.sh | bash
+```
+
+### Manual Install
+```bash
+git clone https://github.com/p4r4d0xb0x/context-logger.git
+cd context-logger
+npm install
+npm link
+```
+
+### NPM (Coming Soon)
 ```bash
 npm install -g context-logger
 ```
