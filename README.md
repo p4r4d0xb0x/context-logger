@@ -1,67 +1,113 @@
 # Context Logger
 
-**Your work context, automatically captured.**
+**Automatic work context capture from Git activity**
+
+Stop asking yourself "what did I do today?" - Context Logger tracks your Git commits and generates daily summaries automatically.
 
 ## Problem
 
 As a developer, you:
-- Forget what you were working on after context switches
-- Waste time explaining your work for PRs/standup/reviews
-- Can't remember "what did I do today?" at EOD
+- 😰 Forget what you were working on after context switches
+- ⏰ Waste time writing PR descriptions or standup updates
+- 📝 Can't remember "what did I accomplish today?"
 
 ## Solution
 
-Context Logger automatically tracks:
-- ✅ Git commits & file changes
-- ✅ Terminal commands
-- ✅ Browser tabs & searches (optional)
-- ✅ AI-generated daily summaries
+Context Logger runs in the background and automatically:
+- ✅ Tracks your Git commits
+- ✅ Stores activity in a local database
+- ✅ Generates daily summaries
+- 🔜 AI-powered context summaries (coming soon)
 
-**Output:**
-```markdown
-## 2026-02-27 Work Summary
+## Installation
 
-### Main Focus: NTDY API Development
-- Built Cloudflare Workers API (3h 45m)
-- Integrated Stripe checkout endpoint
-- Deployed 3 versions
-
-### Issues Encountered:
-- Cloudflare API auth failed (solved: explicit account_id)
-- Webhook signature verification pending
-
-### Research:
-- Searched "stripe cloudflare workers integration"
-- Read 5 docs on serverless payments
-
-### Files Changed:
-- src/index.js (+150 -20)
-- src/stripe.js (new file)
+```bash
+npm install -g context-logger
 ```
 
-## Tech Stack
+## Usage
 
-- **Capture:** Git hooks + FS watcher + browser extension
-- **Storage:** SQLite (local) / PostgreSQL (cloud)
-- **AI:** Claude API for summarization
-- **Output:** Markdown / JSON / Slack
+### See today's activity
+```bash
+cd your-project
+context-logger today
+```
 
-## Pricing
+Output:
+```
+📅 Today's Activity
+========================================
 
-- **Free:** Local-only, basic summaries
-- **Pro ($9/mo):** Cloud sync, advanced insights, team sharing
-- **Business ($29/mo):** Team dashboard, analytics
+📦 Repository: my-awesome-app (main)
+📊 Commits: 3
+
+1. [a1b2c3d] Fix authentication bug
+   14:23:15
+
+2. [e4f5g6h] Add user profile page
+   11:45:32
+
+3. [i7j8k9l] Update README
+   09:12:08
+
+========================================
+```
+
+### View statistics
+```bash
+context-logger stats
+```
+
+## Features
+
+- ✅ Automatic Git commit tracking
+- ✅ Local SQLite database (privacy-first)
+- ✅ Simple CLI interface
+- 🔜 AI-powered daily summaries
+- 🔜 Multi-repo support
+- 🔜 PR description generator
+- 🔜 Weekly reports
+
+## Privacy
+
+All data stays local on your machine in `~/.context-logger/db.sqlite`.
+No cloud services, no tracking, no data collection.
 
 ## Roadmap
 
-- [x] Git commit tracking
-- [ ] Terminal history capture
-- [ ] Browser extension
-- [ ] AI summarization
-- [ ] CLI tool
-- [ ] Web dashboard
+- [x] Basic Git tracking
+- [x] SQLite storage
+- [x] CLI commands
+- [ ] AI summaries (Claude/GPT)
+- [ ] Multi-repo tracking
+- [ ] Export to Markdown
 - [ ] Slack/Discord integration
+
+## Tech Stack
+
+- Node.js
+- simple-git (Git operations)
+- better-sqlite3 (local storage)
+- commander (CLI)
+
+## Development
+
+```bash
+git clone https://github.com/p4r4d0xb0x/context-logger
+cd context-logger
+npm install
+npm link
+context-logger today
+```
+
+## License
+
+MIT
+
+## Author
+
+Built by 호떡 🥞 - a developer who forgets what they did 5 minutes ago.
 
 ---
 
-Built by 호떡 🥞 for developers who forget what they did 5 minutes ago.
+**Status:** MVP v0.1.0 - Working! 🎉
