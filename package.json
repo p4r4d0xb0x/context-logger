@@ -1,0 +1,21 @@
+{
+  "name": "context-logger",
+  "version": "0.1.0",
+  "description": "Automatic work context capture from Git activity",
+  "main": "src/index.js",
+  "bin": {
+    "context-logger": "./bin/cli.js"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node bin/cli.js"
+  },
+  "keywords": ["git", "productivity", "context", "developer", "standup"],
+  "author": "호떡 🥞",
+  "license": "MIT",
+  "dependencies": {
+    "better-sqlite3": "^11.7.0",
+    "commander": "^12.1.0",
+    "simple-git": "^3.27.0"
+  }
+}
