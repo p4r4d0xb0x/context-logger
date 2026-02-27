@@ -53,6 +53,27 @@ Output:
 ========================================
 ```
 
+### Generate AI summary
+```bash
+context-logger summary
+```
+
+Output:
+```
+🤖 Generating AI summary...
+
+📝 Today's Work Summary
+========================================
+
+Worked on CLAW_WS with 1 commit, focusing on updates. 
+Last activity at 14:11:36.
+
+========================================
+```
+
+**Note:** For AI-powered summaries, set `ANTHROPIC_API_KEY` in your environment.
+Without it, basic keyword-based summaries are generated (still useful!).
+
 ### View statistics
 ```bash
 context-logger stats
