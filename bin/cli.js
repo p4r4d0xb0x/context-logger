@@ -3,6 +3,7 @@
 const { Command } = require('commander');
 const GitParser = require('../src/git');
 const Storage = require('../src/storage');
+const AISummarizer = require('../src/ai');
 
 const program = new Command();
 
@@ -49,6 +50,41 @@ program
       });
 
       console.log('='.repeat(40) + '\n');
+    } catch (error) {
+      console.error('Error:', error.message);
+    } finally {
+      storage.close();
+    }
+  });
+
+program
+  .command('summary')
+  .description('Generate AI summary of today\'s work')
+  .action(async () => {
+    const git = new GitParser();
+    const ai = new AISummarizer();
+    const storage = new Storage();
+
+    try {
+      const commits = await git.getTodayCommits();
+      const repo = await git.getRepoInfo();
+
+      if (commits.length === 0) {
+        console.log('\n🥞 No commits today. Go write some code!\n');
+        return;
+      }
+
+      console.log('\n🤖 Generating AI summary...\n');
+      
+      const summary = await ai.summarize(commits, repo);
+      
+      console.log('📝 Today\'s Work Summary\n' + '='.repeat(40));
+      console.log(`\n${summary}\n`);
+      console.log('='.repeat(40) + '\n');
+
+      // Save summary
+      const today = new Date().toISOString().split('T')[0];
+      storage.saveSummary(today, summary, commits.length, 0);
     } catch (error) {
       console.error('Error:', error.message);
     } finally {
