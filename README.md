@@ -1,23 +1,27 @@
 # Context Logger
 
-**Automatic work context capture from Git activity**
+**Context Engineering Infrastructure for AI-Powered Development**
 
-Stop asking yourself "what did I do today?" - Context Logger tracks your Git commits and generates daily summaries automatically.
+Context Logger automatically captures your Git activity and transforms it into structured context for AI agents, agentic workflows, and automated development tools.
 
-## Problem
+## The Context Engineering Problem
 
-As a developer, you:
-- 😰 Forget what you were working on after context switches
-- ⏰ Waste time writing PR descriptions or standup updates
-- 📝 Can't remember "what did I accomplish today?"
+Modern AI-powered development workflows need rich context about your work:
+- 🤖 AI agents need to understand "what have I been working on?"
+- 🔄 Agentic workflows require project history for decision-making
+- 📊 Automated tools depend on accurate activity tracking
+- 🧠 Developer context switches cause information loss
 
-## Solution
+**Context Logger solves this by maintaining a persistent, queryable context layer.**
+
+## How It Works
 
 Context Logger runs in the background and automatically:
-- ✅ Tracks your Git commits
-- ✅ Stores activity in a local database
-- ✅ Generates daily summaries
-- 🔜 AI-powered context summaries (coming soon)
+- ✅ Tracks your Git commits across all repositories
+- ✅ Stores activity in a local SQLite database (privacy-first)
+- ✅ Generates daily/weekly summaries
+- ✅ Provides structured context for AI agents and automation
+- 🔜 Multi-agent context routing (Pro tier)
 
 ## Installation
 
@@ -67,7 +71,7 @@ Output:
 ========================================
 ```
 
-### Generate AI summary
+### Generate AI-powered summary
 ```bash
 context-logger summary
 ```
@@ -93,30 +97,43 @@ Without it, basic keyword-based summaries are generated (still useful!).
 context-logger stats
 ```
 
+## Use Cases
+
+### For Individual Developers
+- 😰 "What did I work on today?" → Instant daily summaries
+- ⏰ Writing standup updates → Automated from Git activity
+- 📝 PR descriptions → Generated from commit context
+
+### For AI Agents & Agentic Workflows
+- 🤖 Persistent memory of developer activity
+- 🔄 Context routing for multi-agent systems
+- 📊 Decision-making based on project history
+- 🧠 Understanding "what's been done" before taking action
+
+### For Teams (Coming Soon)
+- 👥 Shared context across team members
+- 📈 Project-wide activity tracking
+- 🔗 Integration with GitHub Agentic Workflows
+
 ## Features
 
 - ✅ Automatic Git commit tracking
 - ✅ Local SQLite database (privacy-first)
 - ✅ Simple CLI interface
-- 🔜 AI-powered daily summaries
+- ✅ AI-powered summaries (Claude/GPT)
 - 🔜 Multi-repo support
-- 🔜 PR description generator
-- 🔜 Weekly reports
+- 🔜 Context API for AI agents
+- 🔜 Multi-agent context routing (Pro)
+- 🔜 GitHub Agentic Workflows integration
+- 🔜 Team collaboration features
 
-## Privacy
+## Privacy & Security
 
 All data stays local on your machine in `~/.context-logger/db.sqlite`.
-No cloud services, no tracking, no data collection.
-
-## Roadmap
-
-- [x] Basic Git tracking
-- [x] SQLite storage
-- [x] CLI commands
-- [ ] AI summaries (Claude/GPT)
-- [ ] Multi-repo tracking
-- [ ] Export to Markdown
-- [ ] Slack/Discord integration
+- ✅ No cloud services (unless you opt-in)
+- ✅ No tracking or analytics
+- ✅ No data collection
+- ✅ Your code context belongs to you
 
 ## Tech Stack
 
@@ -124,6 +141,20 @@ No cloud services, no tracking, no data collection.
 - simple-git (Git operations)
 - better-sqlite3 (local storage)
 - commander (CLI)
+- Anthropic Claude API (optional, for AI summaries)
+
+## Roadmap
+
+- [x] Basic Git tracking
+- [x] SQLite storage
+- [x] CLI commands
+- [x] AI summaries (Claude/GPT)
+- [ ] Multi-repo tracking
+- [ ] Context API for AI agents
+- [ ] Export to Markdown/JSON
+- [ ] GitHub Agentic Workflows integration
+- [ ] Multi-agent context routing
+- [ ] Team features (Pro tier)
 
 ## Development
 
@@ -135,14 +166,20 @@ npm link
 context-logger today
 ```
 
+## Contributing
+
+Contributions welcome! This is an open-source project focused on solving context engineering challenges in AI-powered development.
+
 ## License
 
 MIT
 
 ## Author
 
-Built by 호떡 🥞 - a developer who forgets what they did 5 minutes ago.
+Built by 호떡 🥞 - because AI agents deserve better context.
 
 ---
 
 **Status:** MVP v0.1.0 - Working! 🎉
+
+**Topics:** `context-engineering` `ai-infrastructure` `agentic-workflows` `developer-tools` `git-automation` `ai-agents`
